@@ -3,31 +3,47 @@
  * @flow
  * Time: 2020/6/16 21:25 下午.
  */
-import React, {Component, ComponentType} from 'react';
-import {AppRegistry, NativeEventEmitter, NativeModules, Platform, Text, View} from 'react-native';
+import React, { Component, ComponentType } from 'react';
+import {
+  AppRegistry,
+  NativeEventEmitter,
+  NativeModules,
+  Platform,
+  Text,
+  View,
+} from 'react-native';
 
 class NormalSplashView extends Component<{ appid: string }> {
   render() {
-    return <View style={{flex: 1, backgroundColor: '#ff0', alignItems: 'center', justifyContent: 'center'}}>
-      <Text>启动屏:{this.props.appid}</Text>
-    </View>
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: '#ff0',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Text>启动屏:{this.props.appid}</Text>
+      </View>
+    );
   }
 }
 
 let splashView: ComponentType<{ appid: string }>;
 
-AppRegistry.registerComponent("UniModules.uniSplashView", () => {
+AppRegistry.registerComponent('UniModules.uniSplashView', () => {
   return splashView || NormalSplashView;
 });
 
 const Uni: any = NativeModules.Uni;
 const uniEmitter = new NativeEventEmitter(Uni);
 type Config = {
-  items?: { title: string, key: string }[],
-  capsule?: boolean,
-  fontSize?: string,
-  fontColor?: string,
-  fontWeight?: string,
+  items?: { title: string; key: string }[];
+  capsule?: boolean;
+  fontSize?: string;
+  fontColor?: string;
+  fontWeight?: string;
 };
 
 /**
@@ -49,15 +65,15 @@ export function initialize(params: Config = {}): Promise<boolean> {
     fontSize: '16px',
     fontColor: '#000',
     fontWeight: 'normal',
-    ...params
-  })
+    ...params,
+  });
 }
 
 type LaunchArgs = {
-  appid: string,
-  params?: Object,
-  path?: string,
-}
+  appid: string;
+  params?: Object;
+  path?: string;
+};
 
 /**
  * 启动参数
@@ -69,7 +85,7 @@ export function launch(arg: LaunchArgs): Promise<boolean> {
     //将参数转化为json字符串免得转化
     arg.params = JSON.stringify(arg.params);
   }
-  return Uni.launch(arg)
+  return Uni.launch(arg);
 }
 
 /**
@@ -78,7 +94,7 @@ export function launch(arg: LaunchArgs): Promise<boolean> {
  * @returns {*}
  */
 export function isExistsApp(appid: string): Promise<boolean> {
-  return Uni.isExistsApp(appid)
+  return Uni.isExistsApp(appid);
 }
 
 /**
@@ -86,7 +102,7 @@ export function isExistsApp(appid: string): Promise<boolean> {
  * @returns {*}
  */
 export function getRuningAppid(): Promise<string | null> {
-  return Uni.getRuningAppid()
+  return Uni.getRuningAppid();
 }
 
 /**
@@ -94,8 +110,10 @@ export function getRuningAppid(): Promise<string | null> {
  * @param appid
  * @returns {*}
  */
-export function getAppVersionInfo(appid: string): Promise<{ name: string, code: number } | null> {
-  return Uni.getAppVersionInfo(appid)
+export function getAppVersionInfo(
+  appid: string
+): Promise<{ name: string; code: number } | null> {
+  return Uni.getAppVersionInfo(appid);
 }
 
 /**
@@ -103,7 +121,7 @@ export function getAppVersionInfo(appid: string): Promise<{ name: string, code: 
  * @returns {*}
  */
 export function getAppBasePath(appid: string): Promise<string> {
-  return Uni.getAppBasePath(appid)
+  return Uni.getAppBasePath(appid);
 }
 
 /**
@@ -111,7 +129,7 @@ export function getAppBasePath(appid: string): Promise<string> {
  * @returns {*}
  */
 export function getCurrentPageUrl(): Promise<string> {
-  return Uni.getCurrentPageUrl()
+  return Uni.getCurrentPageUrl();
 }
 
 /**
@@ -119,9 +137,8 @@ export function getCurrentPageUrl(): Promise<string> {
  * @returns {*}
  */
 export function closeCurrentApp(): Promise<boolean> {
-  return Uni.closeCurrentApp()
+  return Uni.closeCurrentApp();
 }
-
 
 /**
  * 释放wgt文件
@@ -129,19 +146,15 @@ export function closeCurrentApp(): Promise<boolean> {
  * @returns {*}
  */
 export function releaseWgtToRunPathFromPath(path: string): Promise<boolean> {
-  return Uni.releaseWgtToRunPathFromPath(path)
+  return Uni.releaseWgtToRunPathFromPath(path);
 }
-
 
 /**
  * 监听胶囊自定义按键启动
  * @returns {EmitterSubscription}
  */
 export function onMenuClick(cb: (key: any) => void) {
-  return uniEmitter.addListener(
-    'MenuItemClick',
-    cb
-  )
+  return uniEmitter.addListener('MenuItemClick', cb);
 }
 
 /**
@@ -150,18 +163,14 @@ export function onMenuClick(cb: (key: any) => void) {
  * @return {EmitterSubscription}
  */
 export function onEventReceive(cb: (data: any) => void) {
-  return uniEmitter.addListener(
-    'UniMPEventReceive',
-    data => {
-      if (Platform.OS === 'android') {
-        try {
-          data = JSON.parse(data)
-        } catch (e) {
-        }
-      }
-      cb(data)
+  return uniEmitter.addListener('UniMPEventReceive', (data) => {
+    if (Platform.OS === 'android') {
+      try {
+        data = JSON.parse(data);
+      } catch (e) {}
     }
-  )
+    cb(data);
+  });
 }
 
 /**
@@ -170,8 +179,5 @@ export function onEventReceive(cb: (data: any) => void) {
  * @returns {EmitterSubscription}
  */
 export function onAppClose(cb: () => void) {
-  return uniEmitter.addListener(
-    'UniMPOnClose',
-    cb
-  )
+  return uniEmitter.addListener('UniMPOnClose', cb);
 }
