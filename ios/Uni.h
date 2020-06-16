@@ -1,5 +1,7 @@
 #import <React/RCTBridgeModule.h>
-
-@interface Uni : NSObject <RCTBridgeModule>
+#import "DCUniMP.h"
+#import <React/RCTEventEmitter.h>
+#import <React/RCTBridgeDelegate.h>
+@interface Uni : RCTEventEmitter <RCTBridgeModule,DCUniMPSDKEngineDelegate,RCTBridgeDelegate>
 
 @end

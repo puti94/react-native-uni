@@ -13,6 +13,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		20F357B024636CDF00C146DC /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F357AF24636CDF00C146DC /* File.swift */; };
+		C536FAC0249915B100824AA3 /* __UNI__82FC134.wgt in Resources */ = {isa = PBXBuildFile; fileRef = C536FABF249915B100824AA3 /* __UNI__82FC134.wgt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4D7192F03A36A017E887435B /* Pods-UniExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniExample.release.xcconfig"; path = "Target Support Files/Pods-UniExample/Pods-UniExample.release.xcconfig"; sourceTree = "<group>"; };
 		871719007ECC5EAD276C345C /* Pods-UniExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniExample.debug.xcconfig"; path = "Target Support Files/Pods-UniExample/Pods-UniExample.debug.xcconfig"; sourceTree = "<group>"; };
 		BCEA90A70F4BEAD7E9FA28B2 /* libPods-UniExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C536FABF249915B100824AA3 /* __UNI__82FC134.wgt */ = {isa = PBXFileReference; lastKnownFileType = file; path = __UNI__82FC134.wgt; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -48,6 +50,7 @@
 		13B07FAE1A68108700A75B9A /* UniExample */ = {
 			isa = PBXGroup;
 			children = (
+				C536FABB249915B100824AA3 /* unimp */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -109,6 +112,39 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C536FABB249915B100824AA3 /* unimp */ = {
+			isa = PBXGroup;
+			children = (
+				C536FABC249915B100824AA3 /* Resources */,
+				C536FABD249915B100824AA3 /* Libs */,
+				C536FABE249915B100824AA3 /* Apps */,
+			);
+			name = unimp;
+			path = UniExample/unimp;
+			sourceTree = "<group>";
+		};
+		C536FABC249915B100824AA3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C536FABD249915B100824AA3 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		C536FABE249915B100824AA3 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				C536FABF249915B100824AA3 /* __UNI__82FC134.wgt */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,6 +158,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				E9D51EEDD3265BA6F6FF3461 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -172,6 +209,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				C536FAC0249915B100824AA3 /* __UNI__82FC134.wgt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +250,52 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9D51EEDD3265BA6F6FF3461 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UniExample/Pods-UniExample-resources.sh",
+				"${PODS_ROOT}/../../../ios/Resources/PandoraApi.bundle/all.js",
+				"${PODS_ROOT}/../../../ios/Resources/PandoraApi.bundle/iconfont.ttf",
+				"${PODS_ROOT}/../../../ios/Resources/PandoraApi.bundle/pulltorefresh.js",
+				"${PODS_ROOT}/../../../ios/Resources/PandoraApi.bundle/wap2app/__shortcut.js",
+				"${PODS_ROOT}/../../../ios/Resources/PandoraApi.bundle/wap2app/__wap2app.js",
+				"${PODS_ROOT}/../../../ios/Resources/PandoraApi.bundle/wap2app/__wap2app.ttf",
+				"${PODS_ROOT}/../../../ios/Resources/PandoraApi.bundle/wap2app/__wap2appplayer.js",
+				"${PODS_ROOT}/../../../ios/Resources/PandoraApi.bundle/wap2app/__wap2appquit.js",
+				"${PODS_ROOT}/../../../ios/Resources/PandoraApi.bundle/wap2app/__wap2apptabbar.js",
+				"${PODS_ROOT}/../../../ios/Resources/uni-jsframework.js",
+				"${PODS_ROOT}/../../../ios/Resources/unincomponents.ttf",
+				"${PODS_ROOT}/../../../ios/Resources/weex-polyfill.js",
+				"${PODS_ROOT}/../../../ios/Resources/weexUniJs.js",
+				"${PODS_ROOT}/../../../ios/Resources/__uniappes6.js",
+				"${PODS_ROOT}/../../../ios/Resources/PandoraApi.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/all.js",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/iconfont.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pulltorefresh.js",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/__shortcut.js",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/__wap2app.js",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/__wap2app.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/__wap2appplayer.js",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/__wap2appquit.js",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/__wap2apptabbar.js",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/uni-jsframework.js",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/unincomponents.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/weex-polyfill.js",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/weexUniJs.js",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/__uniappes6.js",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PandoraApi.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UniExample/Pods-UniExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
