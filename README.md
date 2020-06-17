@@ -42,7 +42,8 @@ react-native link react-native-webview
 [uni小程序官网](https://nativesupport.dcloud.net.cn/)
 此项目是在react-native中集成uni的小程序sdk，相关注意事项参考官方文档
 由于依赖weex等的相关包比较大，只是集成基础包应用都会大个20M左右。
-此桥接库只默认集成了基础包，如果提示
+此桥接库只默认集成了基础包，如果提示缺少模块，只需要去官网下载sdk添加缺少的包
+
 
 ## Api
 
@@ -124,9 +125,18 @@ type LaunchArgs = {
 
 监听小程序关闭
 
+## QA
+
+#### 打release包出现以下错误
+>  A failure occurred while executing com.android.build.gradle.internal.tasks.Workers$ActionFacade
+   More than one file was found with OS independent path 'AndroidManifest.xml'
+
+ `android/build.gradle` 修改gradle版本 `classpath("com.android.tools.build:gradle:3.4.0")`
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+
 
 ## License
 

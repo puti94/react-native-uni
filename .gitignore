@@ -60,3 +60,4 @@ android/keystores/debug.keystore
 lib/
 yarn.lock
 example/yarn.lock
+.env

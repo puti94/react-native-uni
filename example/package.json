@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "build-android": "cd android && ./gradlew assembleRelease",
     "ios": "react-native run-ios",
     "start": "react-native start"
   },

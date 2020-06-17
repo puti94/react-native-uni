@@ -53,6 +53,11 @@ android {
     //noCompress 'foo', 'bar'
     ignoreAssetsPattern "!.svn:!.git:.*:!CVS:!thumbs.db:!picasa.ini:!*.scc:*~"
   }
+//   repositories {
+//     flatDir {
+//       dirs 'libs'
+//     }
+//   }
 }
 
 repositories {
@@ -124,16 +129,13 @@ repositories {
                     "Ensure you have you installed React Native as a dependency in your project and try again."
     )
   }
-  flatDir {
-    dirs 'libs'
-  }
 }
 
 def kotlin_version = getExtOrDefault('kotlinVersion')
 
 dependencies {
   // noinspection GradleDynamicVersion
-  api fileTree(include: ['*.aar'], dir: 'libs')
+  implementation fileTree(include: ['*.aar'], dir: 'libs')
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   implementation 'com.android.support:recyclerview-v7:27.1.0' //必须集成
