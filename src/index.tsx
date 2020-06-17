@@ -3,7 +3,7 @@
  * @flow
  * Time: 2020/6/16 21:25 下午.
  */
-import React, {Component, ComponentType} from 'react';
+import React, { Component, ComponentType } from 'react';
 import {
   AppRegistry,
   NativeEventEmitter,
@@ -129,7 +129,9 @@ export function getAppVersionInfo(
  * @returns {*}
  */
 export function getAppBasePath(appid: string): Promise<string> {
-  return Platform.OS === 'android' ? Uni.getAppBasePath() : Uni.getAppBasePath(appid);
+  return Platform.OS === 'android'
+    ? Uni.getAppBasePath()
+    : Uni.getAppBasePath(appid);
 }
 
 /**
@@ -174,8 +176,7 @@ export function onEventReceive(cb: (data: any) => void) {
     if (Platform.OS === 'android') {
       try {
         data = JSON.parse(data);
-      } catch (e) {
-      }
+      } catch (e) {}
     }
     cb(data);
   });

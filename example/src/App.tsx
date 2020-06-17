@@ -1,16 +1,11 @@
-import React, {useEffect} from 'react';
-import {
-  Alert,
-  Button,
-  ScrollView,
-  EventSubscription
-} from 'react-native';
+import React, { useEffect } from 'react';
+import { Alert, Button, ScrollView, EventSubscription } from 'react-native';
 import * as Uni from 'react-native-uni';
 import LottieView from 'lottie-react-native';
-import RNFS, {DownloadProgressCallbackResult} from 'react-native-fs';
+import RNFS, { DownloadProgressCallbackResult } from 'react-native-fs';
 
 Uni.initialize({
-  items: [{title: '标题', key: 't1'}],
+  items: [{ title: '标题', key: 't1' }],
   capsule: true,
   fontSize: '16px',
   fontColor: '#000',
@@ -25,9 +20,7 @@ Uni.initialize({
 
 class SplashView extends React.Component<{ appid: string }> {
   render() {
-    return (
-      <LottieView source={require('./progress.json')} autoPlay loop/>
-    );
+    return <LottieView source={require('./progress.json')} autoPlay loop />;
   }
 }
 
@@ -60,7 +53,7 @@ export default function App() {
   }, []);
   return (
     <ScrollView
-      style={{flex: 1}}
+      style={{ flex: 1 }}
       contentContainerStyle={{
         alignContent: 'center',
         paddingTop: 100,
@@ -70,7 +63,7 @@ export default function App() {
       <Button
         title="本地nui-UI项目"
         onPress={() => {
-          Uni.launch({appid: '__UNI__7586C24'})
+          Uni.launch({ appid: '__UNI__7586C24' })
             .then(() => console.log('success'))
             .catch((e) => console.error('错误', e));
         }}
@@ -78,7 +71,7 @@ export default function App() {
       <Button
         title="本地商城项目"
         onPress={() => {
-          Uni.launch({appid: '__UNI__82FC134'})
+          Uni.launch({ appid: '__UNI__82FC134' })
             .then(() => console.log('success'))
             .catch((e) => console.error('错误', e));
         }}
@@ -122,7 +115,7 @@ export default function App() {
             '/Users/puti/Desktop/WorkSpace/uni/test/unpackage/release/__UNI__82FC134.wgt'
           ).then((res) => {
             if (res) {
-              Uni.launch({appid: '__UNI__82FC134'});
+              Uni.launch({ appid: '__UNI__82FC134' });
             }
           });
         }}
@@ -143,7 +136,7 @@ function openFromUrl(
 ) {
   let toFile = `${RNFS.TemporaryDirectoryPath}/${appid}.wgt`;
   return Uni.isExistsApp(appid).then((res) => {
-    if (res) return Uni.launch({appid: appid});
+    if (res) return Uni.launch({ appid: appid });
     return RNFS.downloadFile({
       fromUrl: `https://va.substrate.top/${appid}.wgt`,
       toFile: toFile,
@@ -157,7 +150,7 @@ function openFromUrl(
       .then((res) => {
         console.log('释放完成', res);
         RNFS.unlink(toFile).then(() => console.log('删除完成'));
-        return Uni.launch({appid: appid});
+        return Uni.launch({ appid: appid });
       });
   });
 }
