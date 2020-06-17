@@ -1,6 +1,6 @@
 {
   "name": "react-native-uni",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "react-native 桥接uni小程序sdk",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -16,6 +16,7 @@
     "react-native-uni.podspec",
     "!lib/typescript/example",
     "!**/__tests__",
+    "!**/build",
     "!**/__fixtures__",
     "!**/__mocks__"
   ],
