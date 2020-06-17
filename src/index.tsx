@@ -3,7 +3,7 @@
  * @flow
  * Time: 2020/6/16 21:25 下午.
  */
-import React, { Component, ComponentType } from 'react';
+import React, {Component, ComponentType} from 'react';
 import {
   AppRegistry,
   NativeEventEmitter,
@@ -39,10 +39,15 @@ AppRegistry.registerComponent('UniModules.uniSplashView', () => {
 const Uni: any = NativeModules.Uni;
 const uniEmitter = new NativeEventEmitter(Uni);
 type Config = {
+  // 胶囊按钮的标题和标识
   items?: { title: string; key: string }[];
+  //是否显示胶囊按钮
   capsule?: boolean;
+  //安卓独有，胶囊按钮字体大小
   fontSize?: string;
+  //安卓独有，胶囊按钮字体颜色
   fontColor?: string;
+  //安卓独有，胶囊按钮字体宽度
   fontWeight?: string;
 };
 
@@ -70,8 +75,11 @@ export function initialize(params: Config = {}): Promise<boolean> {
 }
 
 type LaunchArgs = {
+  //uni小程序id
   appid: string;
+  //需要传给小程序的参数
   params?: Object;
+  //打开小程序的路径
   path?: string;
 };
 
@@ -121,7 +129,7 @@ export function getAppVersionInfo(
  * @returns {*}
  */
 export function getAppBasePath(appid: string): Promise<string> {
-  return Uni.getAppBasePath(appid);
+  return Platform.OS === 'android' ? Uni.getAppBasePath() : Uni.getAppBasePath(appid);
 }
 
 /**
@@ -142,7 +150,6 @@ export function closeCurrentApp(): Promise<boolean> {
 
 /**
  * 释放wgt文件
- * @param path
  * @returns {*}
  */
 export function releaseWgtToRunPathFromPath(path: string): Promise<boolean> {
@@ -158,7 +165,7 @@ export function onMenuClick(cb: (key: any) => void) {
 }
 
 /**
- * 监听小程序像app发送的消息
+ * 监听小程序向app发送的消息
  * @param cb
  * @return {EmitterSubscription}
  */
@@ -167,7 +174,8 @@ export function onEventReceive(cb: (data: any) => void) {
     if (Platform.OS === 'android') {
       try {
         data = JSON.parse(data);
-      } catch (e) {}
+      } catch (e) {
+      }
     }
     cb(data);
   });

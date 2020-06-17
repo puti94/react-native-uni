@@ -22,6 +22,36 @@
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+      <provider
+        android:name="io.dcloud.common.util.DCloud_FileProvider"
+        android:authorities="${apk.applicationId}.dc.fileprovider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/dcloud_file_provider" />
+      </provider>
+      <activity
+        android:name="io.dcloud.PandoraEntryActivity"
+        android:configChanges="orientation|keyboardHidden|screenSize|mcc|mnc|fontScale|keyboard"
+        android:hardwareAccelerated="true"
+        android:launchMode="singleTask"
+        android:permission="com.miui.securitycenter.permission.AppPermissionsEditor"
+        android:screenOrientation="user"
+        android:theme="@style/DCloudTheme"
+        android:windowSoftInputMode="adjustResize">
+
+        <intent-filter>
+
+          <action android:name="android.intent.action.VIEW" />
+
+          <category android:name="android.intent.category.BROWSABLE" />
+
+          <category android:name="android.intent.category.DEFAULT" />
+
+          <data android:scheme="h56131bcf" />
+        </intent-filter>
+      </activity>
     </application>
 
 </manifest>

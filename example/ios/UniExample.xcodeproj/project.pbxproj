@@ -14,6 +14,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		20F357B024636CDF00C146DC /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F357AF24636CDF00C146DC /* File.swift */; };
 		C536FAC0249915B100824AA3 /* __UNI__82FC134.wgt in Resources */ = {isa = PBXBuildFile; fileRef = C536FABF249915B100824AA3 /* __UNI__82FC134.wgt */; };
+		C536FAC22499A76A00824AA3 /* liblibIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C536FAC12499A76A00824AA3 /* liblibIO.a */; };
+		C536FAC82499B78400824AA3 /* __UNI__7586C24.wgt in Resources */ = {isa = PBXBuildFile; fileRef = C536FAC72499B78400824AA3 /* __UNI__7586C24.wgt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		871719007ECC5EAD276C345C /* Pods-UniExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniExample.debug.xcconfig"; path = "Target Support Files/Pods-UniExample/Pods-UniExample.debug.xcconfig"; sourceTree = "<group>"; };
 		BCEA90A70F4BEAD7E9FA28B2 /* libPods-UniExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C536FABF249915B100824AA3 /* __UNI__82FC134.wgt */ = {isa = PBXFileReference; lastKnownFileType = file; path = __UNI__82FC134.wgt; sourceTree = "<group>"; };
+		C536FAC12499A76A00824AA3 /* liblibIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibIO.a; path = UniExample/unimp/Libs/liblibIO.a; sourceTree = "<group>"; };
+		C536FAC72499B78400824AA3 /* __UNI__7586C24.wgt */ = {isa = PBXFileReference; lastKnownFileType = file; path = __UNI__7586C24.wgt; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -40,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C536FAC22499A76A00824AA3 /* liblibIO.a in Frameworks */,
 				0D1336C0461A88D01186E375 /* libPods-UniExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +79,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C536FAC12499A76A00824AA3 /* liblibIO.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				BCEA90A70F4BEAD7E9FA28B2 /* libPods-UniExample.a */,
 			);
@@ -116,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				C536FABC249915B100824AA3 /* Resources */,
-				C536FABD249915B100824AA3 /* Libs */,
 				C536FABE249915B100824AA3 /* Apps */,
 			);
 			name = unimp;
@@ -130,16 +135,10 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		C536FABD249915B100824AA3 /* Libs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Libs;
-			sourceTree = "<group>";
-		};
 		C536FABE249915B100824AA3 /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				C536FAC72499B78400824AA3 /* __UNI__7586C24.wgt */,
 				C536FABF249915B100824AA3 /* __UNI__82FC134.wgt */,
 			);
 			path = Apps;
@@ -208,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				C536FAC82499B78400824AA3 /* __UNI__7586C24.wgt in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				C536FAC0249915B100824AA3 /* __UNI__82FC134.wgt in Resources */,
 			);
@@ -355,6 +355,10 @@
 				DEAD_CODE_STRIPPING = NO;
 				INFOPLIST_FILE = UniExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UniExample/unimp/Libs",
+				);
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-DFB_SONARKIT_ENABLED=1",
@@ -382,6 +386,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = UniExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UniExample/unimp/Libs",
+				);
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-DFB_SONARKIT_ENABLED=1",

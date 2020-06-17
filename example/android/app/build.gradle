@@ -117,7 +117,11 @@ def jscFlavor = 'org.webkit:android-jsc:+'
  * and the benefits of using Hermes will therefore be sharply reduced.
  */
 def enableHermes = project.ext.react.get("enableHermes", false);
-
+//必须配置
+def mfph = [
+  //包名
+  "apk.applicationId" : "com.example.reactnativeuni",
+]
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -128,10 +132,18 @@ android {
 
     defaultConfig {
         applicationId "com.example.reactnativeuni"
-        minSdkVersion rootProject.ext.minSdkVersion
+        minSdkVersion 19
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
+        multiDexEnabled true
+        manifestPlaceholders = mfph
         versionName "1.0"
+    }
+    //此处配置必须添加 否则无法正确运行
+    aaptOptions {
+      additionalParameters '--auto-add-overlay'
+    //noCompress 'foo', 'bar'
+     ignoreAssetsPattern "!.svn:!.git:.*:!CVS:!thumbs.db:!picasa.ini:!*.scc:*~"
     }
     splits {
         abi {
@@ -186,6 +198,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation fileTree(dir: "libs", include: ["*.aar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
