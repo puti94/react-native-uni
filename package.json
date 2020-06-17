@@ -15,6 +15,7 @@
     "cpp",
     "react-native-uni.podspec",
     "!lib/typescript/example",
+    "!ios/libs/liblibWeex.a",
     "!**/__tests__",
     "!**/build",
     "!**/__fixtures__",
