@@ -1,6 +1,6 @@
 {
   "name": "react-native-uni",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "react-native 桥接uni小程序sdk",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
