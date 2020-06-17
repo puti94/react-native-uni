@@ -15,7 +15,6 @@
     "cpp",
     "react-native-uni.podspec",
     "!lib/typescript/example",
-    "!ios/libs/*.a",
     "!**/__tests__",
     "!**/build",
     "!**/__fixtures__",
